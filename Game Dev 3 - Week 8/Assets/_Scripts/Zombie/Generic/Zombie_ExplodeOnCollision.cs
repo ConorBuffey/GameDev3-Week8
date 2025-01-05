@@ -29,6 +29,8 @@ namespace GameDevWithMarco.Enemy
         {
             if (collision.gameObject.tag == "Player")
             {
+                Rigidbody rb = collision.gameObject.GetComponent<Player_Movement>().sphereRb;
+                if (rb.velocity.x < 1 && rb.velocity.z < 1) return;
                 //Checks the type of the zombie
                 switch (zombieParent.whatTypeIsThisZombie)
                 {
@@ -47,7 +49,7 @@ namespace GameDevWithMarco.Enemy
                     default:
                         break;
                 }
-
+                
                 //Plays the gargle sound
                 playerAudioScript.PlayGargleSound();
                 //To destroy the gameObject this script is attached to

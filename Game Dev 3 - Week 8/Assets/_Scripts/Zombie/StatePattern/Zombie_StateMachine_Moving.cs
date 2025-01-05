@@ -31,6 +31,14 @@ namespace GameDevWithMarco.StatePattern
 
         public override void OnCollisionEnter(Zombie_StateMachine_Manager stateMachineManager, Collision collision)
         {
+            if (collision.gameObject.tag == "Player")
+            {
+               stateMachineManager.SwitchState(stateMachineManager.attackState);
+            }
+        }
+
+        public override void OnCollisionExit(Zombie_StateMachine_Manager stateMachineManager, Collision collision)
+        {
 
         }
 
